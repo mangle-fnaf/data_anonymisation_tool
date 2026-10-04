@@ -1,0 +1,7 @@
+Name,Email,EmployeeID,Department,Salary
+Alice Smith,alice.smith@company.com,EMP001,Engineering,42000
+Bob Jones,bob.jones@company.com,EMP002,HR,38000
+Charlie Lee,charlie.lee@company.com,EMP003,Finance,45000
+Amy, Amy.smith@company.com, EMP004, Billing, 15000
+Michael, michael@company.com, EMP005, Architecture, 45000
+Yolanda, Yolanda.Cole@company.com, EMP006, Admin, 12000

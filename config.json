@@ -1,0 +1,11 @@
+{
+    "project_owner": "Maliyka",
+    "generate_synthetic": true,
+    "fields": {
+        "Name": "redact",
+        "Email": "hash",
+        "EmployeeID": "tokenise",
+        "Salary": "encrypt"
+    },
+    "notes": "Chosen methods reflect a balance between privacy and keeping the dataset useful for testing."
+}

@@ -1,0 +1,5 @@
+encryption.key
+__pycache__/
+*.log
+output/
+reports/
