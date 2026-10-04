@@ -1,0 +1,11 @@
+Before anonymisation, the dataset contains several fields that could identify someone directly, like their name, email address, and employee ID. 
+Salary isn’t an identifier on its own, but it’s still sensitive information, especially in small teams where people might know each other’s pay. 
+Because of this, the original dataset carries a moderate level of privacy risk.
+After anonymisation, most of that risk is removed. Names are fully redacted, emails are hashed, and employee IDs are replaced with tokens that don’t link back to real people. 
+Salary values are encrypted so they’re no longer visible in plain text. Department is left as‑is because it’s low sensitivity and needed for testing.
+There is still some residual risk, mainly because anonymised data can sometimes be linked back to individuals if someone has access to external information. 
+For example, a very unusual salary or a rare department could still narrow down who someone is in a small organisation.
+Hashing also keeps patterns, meaning two identical emails will produce the same hash — useful for testing, but still something to be aware of.
+Overall, the anonymisation methods reduce the dataset’s risk from medium to low. 
+The output is suitable for testing and development without exposing personal details, as long as it isn’t combined with other identifying information.
+  
