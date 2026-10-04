@@ -1,0 +1,48 @@
+Threat Model
+This tool processes employee data that includes names, emails, employee IDs, departments, and salaries. 
+The main threats come from the possibility of exposing personal information during processing or from someone trying to reverse the anonymisation methods.
+
+Assets
+Original CSV containing personal data
+Encryption key
+Anonymised output
+Logs and privacy reports
+
+Threat Actors
+Someone with access to the raw dataset
+Someone trying to reverse hashed or tokenised values
+An internal user misusing the tool
+An attacker gaining access to output files or logs
+
+Potential Threats
+Exposure of raw data if the original CSV is stored or shared incorrectly
+Key leakage, which would allow encrypted salary values to be decrypted
+Hash comparison attacks, where identical hashes reveal identical emails
+Token misuse, where someone tries to map tokens back to real employee IDs
+Log leakage, if logs accidentally contain sensitive information
+Misconfiguration, where fields are anonymised incorrectly or not at all
+
+Vulnerabilities
+The encryption key is stored locally and must be protected
+Hashing preserves patterns, which can reveal duplicates
+Tokenisation relies on a mapping dictionary that must not be exposed
+Logs could reveal more than intended if not handled carefully
+
+Controls Implemented
+Names are fully redacted
+Emails are hashed using SHA‑256
+Employee IDs are replaced with non‑identifying tokens
+Salaries are encrypted using Fernet
+Logs are kept simple and can be ignored via .gitignore
+Configuration is separated from code to reduce mistakes
+Synthetic data option avoids using real data entirely
+
+Residual Risk
+Even after anonymisation, some risk remains. Unique salary values or rare departments could still hint at specific individuals in very small organisations.
+Hashing also keeps identical values consistent, which is useful for testing but still reveals patterns. 
+As long as the encryption key and token mappings are kept private, the remaining risk is low.
+
+Overall Assessment
+The tool reduces the dataset’s risk from medium to low by removing direct identifiers and protecting sensitive fields. 
+When used correctly — with the encryption key secured and logs handled safely — the anonymised output is suitable for testing and development without 
+exposing personal information.
