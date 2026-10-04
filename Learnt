@@ -1,0 +1,18 @@
+What have I learnt?
+
+This project taught me how different anonymisation techniques work in practice and how they affect the privacy risk of a dataset. 
+I learned the differences between hashing, tokenisation, redaction, and encryption, and how each method protects data in a different way. 
+Building the tool helped me understand how organisations prepare sensitive information before using it for testing or analysis.
+I also learned how important logging and audit trails are when handling personal data. 
+Adding logs made the anonymisation process transparent and helped me verify that each field was processed correctly. 
+Creating a configurable system through config.json taught me how to separate logic from settings, making the tool easier to maintain and extend.
+
+Set-backs
+
+I faced several setbacks while building this project. At first, I tried to encrypt integers directly, which caused errors because encryption requires byte strings. 
+Fixing this taught me how to properly handle data types when using cryptography. 
+I also had issues with inconsistent CSV formatting, spacing errors, and missing fields, which helped me understand how messy real-world data can be. 
+Another challenge was managing the encryption key — I had to learn how to generate, store, and reuse a stable key so encrypted values remained consistent across runs.
+
+Conclusion
+Overall, this project strengthened my understanding of secure data handling, improved my Python skills, and gave me practical experience with privacy engineering concepts.
