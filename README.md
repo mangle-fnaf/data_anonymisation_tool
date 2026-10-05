@@ -1,98 +1,54 @@
-- Data Anonymisation & Privacy Tool - 
-This project is a small Python application I built to practise secure data handling, anonymisation techniques, and basic privacy risk assessment. It takes a CSV file containing employee data and applies different anonymisation methods depending on the configuration set in config.json.
+# Data Anonymisation Tool
 
-The aim of the project is to understand how organisations protect sensitive information before using data for testing, analysis, or development.
+This project is a practical data anonymisation tool designed to transform sensitive information into safe, non-identifiable formats. It demonstrates secure data handling, hashing techniques, and structured anonymisation workflows suitable for environments where privacy, compliance, and controlled data sharing are essential.
 
-- Features - 
+## Overview
+The tool anonymises user-provided data using hashing, masking, and structured transformation rules. It provides a simple way to protect identifiable information before storage, analysis, or transfer. This project reflects real-world data protection practices used in cybersecurity, healthcare, and governance environments.
 
-~ Anonymisation Methods ~
-The tool supports several anonymisation techniques:
-Name → Redacted
-Email → SHA‑256 hash
-EmployeeID → Tokenised (keeps uniqueness without revealing identity)
-Salary → Encrypted using Fernet (AES‑based encryption)
+## Features
+- SHA-256 hashing for irreversible anonymisation  
+- Masking of identifiable fields  
+- Clear separation between raw and anonymised data  
+- Simple CLI interface for demonstration and testing  
+- Consistent anonymisation rules for predictable output  
 
-These methods can be changed or extended through config.json.
+## Why I Built This
+I created this tool to explore practical data protection techniques and strengthen my understanding of secure data handling. It allowed me to apply cybersecurity concepts such as hashing, privacy-by-design, and safe transformation of user data. This project also supports my interest in data governance and secure sandbox environments.
 
-~ Synthetic Data ~
-If real data isn’t required, the tool can generate synthetic employee records. This is controlled by:
-"generate_synthetic": true
-Synthetic data allows safe testing without exposing real personal information.
+## How It Works
+1. User enters sensitive information  
+2. The tool applies hashing or masking rules  
+3. An anonymised version of the data is generated  
+4. Output is displayed clearly for comparison  
 
-~ Risk Scoring ~
-The tool calculates a simple privacy risk score before and after anonymisation.
-This is not a full GDPR assessment, but it provides a quick indication of how much risk is reduced when identifiers are removed or encrypted.
+## Example Output
+Input: John Smith
+Hashed: 3a7bd3e2360a3d...
+Masked: J*** S****
 
-~ Privacy Report 
-Each run produces a privacy_report.txt summarising:
-What was anonymised
-Why those methods were chosen
-Risk scoring
-Remaining considerations
-The project owner’s name
-This simulates a basic privacy workflow.
 
-~ CLI Menu ~
-A simple command‑line menu is included to make the tool easier to use:
-1. Anonymise real CSV
-2. Generate synthetic data
-3. View risk score only
-4. Exit
+## How to Run
+1. Clone the repository  
+2. Open the project folder  
+3. Run the script using Python  
+4. Follow the on-screen prompts to enter data  
 
-~ Configuration ~
-The anonymisation behaviour is controlled through config.json.
-Example:
+## Tech Stack
+- Python  
+- Hashlib  
+- Basic CLI interface  
 
-{
-    "project_owner": "Maliyka",
-    "generate_synthetic": true,
-    "fields": {
-        "Name": "redact",
-        "Email": "hash",
-        "EmployeeID": "tokenise",
-        "Salary": "encrypt"
-    }
-}
+## What I Learned
+- How hashing protects sensitive information  
+- How to design simple anonymisation rules  
+- How to structure secure data workflows  
+- How to evaluate risks and limitations in anonymisation  
+- How anonymisation supports safe testing environments  
 
-This makes the tool flexible and easy to adjust without modifying the main script.
+## Future Improvements
+- Add multiple anonymisation profiles  
+- Add export options for anonymised datasets  
+- Add a GUI version for easier use  
+- Integrate additional hashing algorithms  
+- Add logging and audit trails for compliance  
 
-- Project Structure -
-
-Data_anonymisation_tool/
-│
-├── data/
-│   └── sample.csv
-│
-├── output/
-│   └── anonymised.csv
-│
-├── reports/
-│   ├── anonymisation.log
-│   └── privacy_report.txt
-│
-├── config.json
-├── anonymisation.py
-└── encryption.key
-
-- Purpose -
-I built this project to learn and practise:
-Anonymisation techniques
-Hashing vs encryption
-Tokenisation
-Logging and audit trails
-Basic privacy risk scoring
-Secure data‑handling workflows
-
-It helped me understand how sensitive data can be protected before being used in non‑production environments.
-
-- Future Improvements -
-Possible additions:
-GUI version
-More anonymisation options
-Regex‑based masking
-Exporting reports in different formats
-More detailed risk modelling
-
-- Author - 
-Maliyka  
-Cybersecurity student focusing on secure coding, privacy engineering, and data protection.
